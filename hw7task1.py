@@ -203,6 +203,9 @@ def main():
             if len(args) != 2:
                 print("Invalid number of arguments.")
                 continue
+            if not phone.isdigit() or len(phone) != 10:  #перевірка на введення
+                print("Phone number must be a 10-digit number.")
+                continue
             name, new_phone = args
             record = book.find(name)
             if record: 
