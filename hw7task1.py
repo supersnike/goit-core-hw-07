@@ -191,6 +191,9 @@ def main():
                 print("Invalid number of arguments.")
                 continue
             name, phone = args
+            if not phone.isdigit() or len(phone) != 10:
+                print("Phone number must be a 10-digit number.")
+                continue
             record = Record(name)
             record.add_phone(phone)
             book.add_record(record)
@@ -202,7 +205,7 @@ def main():
                 continue
             name, new_phone = args
             record = book.find(name)
-            if record:
+            if record: #перевірка на введення
                 record.edit_phone(record.phones[0].value, new_phone)
                 print(f"Phone number changed for {name}.")
             else:
